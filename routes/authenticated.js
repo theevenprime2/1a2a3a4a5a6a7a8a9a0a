@@ -2,8 +2,12 @@ module.exports = [
   {
     path: "/auth",
     method: "GET",
-    handler: function (request, reply) {
-      reply('Hello!');
+    config: {
+      auth: 'jwt'
+    },
+    handler: function(request, reply) {
+      reply('Welcome!')
+      .header("Authorization", request.headers.authorization);
     }
   }
 ]
