@@ -15,7 +15,6 @@
     "handlebars": "^4.0.5",
     "hapi": "^12.1.0",
     "hapi-auth-jwt2": "^5.3.2",
-    "htmlbars": "^0.14.13",
     "inert": "^3.2.0",
     "jquery": "^2.2.0",
     "lodash": "^4.1.0",
