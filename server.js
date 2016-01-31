@@ -9,7 +9,7 @@ var log = bunyan.createLogger({
 var connection = {
   host: process.env.HOST || "localhost",
   port: process.env.PORT || "3000"
-}
+};
 
 require('./lib/startup.js')({
   connection: connection
