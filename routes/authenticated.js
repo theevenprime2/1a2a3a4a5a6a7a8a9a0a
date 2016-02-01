@@ -1,3 +1,5 @@
+var Joi = require('joi');
+
 module.exports = [
   {
     path: "/login",
@@ -22,14 +24,14 @@ module.exports = [
     path: "/register",
     method: "POST",
     config: {
-      auth: 'jwt'
-    },
-    validate: {
-      payload: {
-        email: Joi.string().email().required(),
-        password: Joi.string().required()
+      auth: 'jwt',
+      validate: {
+        payload: {
+          email: Joi.string().email().required(),
+          password: Joi.string().required()
+        }
       }
-    }
+    },
     handler: function(request, reply) {
       var newUser = new User({
         email: request.payload.email
