@@ -6,15 +6,6 @@ var Bcrypt = require('bcrypt');
 var r = Thinky.r;
 var type = Thinky.type;
 
-// function toLower(v) {
-//   return v.toLowerCase();
-// }
-
-// function hashPassword(v) {
-//   var salt = Bcrypt.genSaltSync(Config.get('/saltRounds'));
-//   return Bcrypt.hashSync(v, salt);
-// }
-
 var User = Thinky.createModel("Users", {
   username: type.string().required().allowNull(false).validator(function(nickname) {
     return (
@@ -60,12 +51,8 @@ User.pre('save', function(next) {
       }
     });
   });
+
+  user.email = user.email.toLowerCase();
 });
-
-// UserSchema.methods.checkPassword = function(password, cb) {
-//   return Bcrypt.compare(password, this.password, cb);
-// }
-
-// var user = mongoose.model('user', UserSchema);
 
 module.exports = User;
